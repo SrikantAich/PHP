@@ -40,7 +40,7 @@
     <h2>Using the <code>global</code> Keyword</h2>
     <p>The <code>global</code> keyword in PHP is used to access variables from the global scope within a function. When a variable is declared outside a function, it has a global scope and cannot be accessed directly within a function. The <code>global</code> keyword allows you to use these global variables inside a function.</p>
 
-    <h2>Code Snippet</h2>
+    <h2>Code Snippet (Using <code>global</code> Keyword)</h2>
     <pre><code>
     &lt;?php
         // Declare global variables
@@ -51,11 +51,32 @@
         function test() {
             global $x, $y; // Access global variables
             $y = $x + $y;   // Perform addition
-            echo "Sum is: $y"; // Output the result
+            echo "Sum using global keyword: $y&lt;br&gt;"; // Output the result
         }
 
         // Call the function
         test();
+    ?&gt;
+    </code></pre>
+
+    <h2>Using the <code>$GLOBALS</code> Array</h2>
+    <p>The <code>$GLOBALS</code> array is a superglobal in PHP, which means it is accessible from anywhere in the script, including within functions. The array stores all global variables as elements with the variable names as keys.</p>
+
+    <h2>Code Snippet (Using <code>$GLOBALS</code> Array)</h2>
+    <pre><code>
+    &lt;?php
+        // Declare global variables
+        $a = 30;
+        $b = 40;
+
+        // Function to add global variables using $GLOBALS array
+        function testUsingGlobals() {
+            $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b']; // Perform addition using $GLOBALS array
+            echo "Sum using \$GLOBALS array: " . $GLOBALS['b']; // Output the result
+        }
+
+        // Call the function
+        testUsingGlobals();
     ?&gt;
     </code></pre>
 
@@ -68,13 +89,26 @@
 
         // Function to add global variables and display the sum
         function test() {
-            global $x, $y; // Access
+            global $x, $y; // Access global variables
             $y = $x + $y;   // Perform addition
-            echo "Sum is: $y"; // Output the result
+            echo "Sum using global keyword: $y<br>"; // Output the result
         }
 
         // Call the function
         test();
+
+        // Declare global variables for $GLOBALS example
+        $a = 30;
+        $b = 40;
+
+        // Function to add global variables using $GLOBALS array
+        function testUsingGlobals() {
+            $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b']; // Perform addition using $GLOBALS array
+            echo "Sum using \$GLOBALS array: " . $GLOBALS['b']; // Output the result
+        }
+
+        // Call the function
+        testUsingGlobals();
         ?>
     </div>
 </body>
