@@ -10,9 +10,11 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+
         h3 {
             color: #333;
         }
+
         pre {
             background-color: #f4f4f4;
             padding: 10px;
@@ -100,12 +102,18 @@ for ($i = 1; $i &lt;= 4; $i++) {
 // * * * *
 //  * * *
 // * * * *
-for ($i = 1; $i &lt;= 4; $i++) {
-    if ($i % 2 != 0) { // Odd rows
-        echo "* * * * &lt;br&gt;";
-    } else { // Even rows
-        echo " * * * &lt;br&gt;";
+for ($i = 1; $i&lt;4; $i++) {
+    if ($i == 1 || $i == 3) { // First and last rows
+        for ($j = 1; $j &lt;= 4; $j++) {
+            echo "*&amp;nbsp;";
+        }
+    } else { // Interior rows with a leading space
+        echo "&amp;nbsp;";
+        for ($j = 1; $j &lt;= 3; $j++) {
+            echo "*&amp;nbsp;";
+        }
     }
+    echo "&lt;br&gt;";
 }
 ?&gt;
 </code></pre>
@@ -116,12 +124,18 @@ for ($i = 1; $i &lt;= 4; $i++) {
     // * * * *
     //  * * *
     // * * * *
-    for ($i = 1; $i <= 4; $i++) {
-        if ($i % 2 != 0) { // Odd rows
-            echo "* * * * <br>";
-        } else { // Even rows
-            echo "&nbsp;* * * <br>";
+    for ($i = 1; $i <= 3; $i++) {
+        if ($i == 1 || $i == 3) { // First and last rows
+            for ($j = 1; $j <= 4; $j++) {
+                echo "*&nbsp;";
+            }
+        } else { // Interior rows with a leading space
+            echo "&nbsp;";
+            for ($j = 1; $j <= 3; $j++) {
+                echo "*&nbsp;";
+            }
         }
+        echo "<br>";
     }
     ?>
 
