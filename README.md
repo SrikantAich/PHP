@@ -30,7 +30,7 @@ PHP is a popular server-side scripting language that is widely used for web deve
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/learning-basic-php.git
+   git clone 
    cd learning-basic-php
    ```
 
