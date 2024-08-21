@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,18 +11,24 @@
             line-height: 1.6;
             margin: 20px;
         }
-        h1, h2, h3 {
+
+        h1,
+        h2,
+        h3 {
             color: gray;
         }
+
         h4 {
             color: #666;
         }
+
         pre {
             background-color: #f4f4f4;
             padding: 10px;
             border: 1px solid #ddd;
             overflow: auto;
         }
+
         .output {
             background-color: #e0f7fa;
             padding: 10px;
@@ -30,12 +37,17 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Static Variable in PHP</h1>
-    
+
     <h2>Introduction</h2>
-    <p>Static variables in PHP are variables that retain their value even after the function exits. This allows the variable to maintain its value across multiple calls to the function.</p>
-    
+    <p>
+        Static variables in PHP are variables that retain their value
+        even after the function exits. This allows the variable to
+        maintain its value across multiple calls to the function.
+    </p>
+
     <h2>Example with Static Variable</h2>
     <pre><code>
     &lt;?php
@@ -52,19 +64,20 @@
         myTest();
     ?&gt;
     </code></pre>
-    
+
     <div class="output">
         <?php
-            function myTest() {
-                static $number = 10;
-                echo $number;
-                $number++;
-            }
-            myTest();
-            echo "<br>";
-            myTest();
-            echo "<br>";
-            myTest();
+        function myTest()
+        {
+            static $number = 10;
+            echo $number;
+            $number++;
+        }
+        myTest();
+        echo "<br>";
+        myTest();
+        echo "<br>";
+        myTest();
         ?>
     </div>
 
@@ -86,21 +99,23 @@
         myTest1();
     ?&gt;
     </code></pre>
-    
+
     <div class="output">
         <?php
-            function myTest1() {
-                $number = 10;
-                echo $number;
-                $number++;
-            }
-            echo "<br>";
-            myTest1();
-            echo "<br>";
-            myTest1();
-            echo "<br>";
-            myTest1();
+        function myTest1()
+        {
+            $number = 10;
+            echo $number;
+            $number++;
+        }
+        echo "<br>";
+        myTest1();
+        echo "<br>";
+        myTest1();
+        echo "<br>";
+        myTest1();
         ?>
     </div>
 </body>
+
 </html>

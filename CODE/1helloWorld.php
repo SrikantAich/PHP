@@ -43,7 +43,7 @@
     
     <div class="output">
         <?php
-            echo "Hello World!!" . "<br>"; // echo statement to print the string
+            echo "Hello World!!" . "<br>";// echo statement to print the string
             // HTML tags are treated as tags and not as string
             echo "PHP version: " . phpversion() . "<br/>"; // method to check PHP version
         ?>
