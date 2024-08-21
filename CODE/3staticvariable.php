@@ -82,7 +82,7 @@
     </div>
 
     <h2>Example without Static Variable</h2>
-    <p>In this example, the variable <code>$number</code> is not static, so its value is reset each time the function is called.</p>
+    <p>In this example, the variable <code>$number</code>            is not static, so its value is reset each time the function is called.</p>
     <pre><code>
     &lt;?php
         function myTest1()
