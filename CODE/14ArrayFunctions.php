@@ -28,531 +28,301 @@
 </head>
 <body>
 
-    <h3>PHP Array Functions Overview</h3>
+    <h3>PHP Array Functions</h3>
 
-    <!-- Section: Array Creation and Initialization -->
-    <h4>Array Creation and Initialization</h4>
-    <p>Creating an array using <code>array()</code> and <code>range()</code>:</p>
+    <!-- array_combine -->
+    <h4>array_combine()</h4>
+    <p><strong>Description:</strong> Combines two arrays into one associative array where the first array’s values are used as keys and the second array’s values as the corresponding values.</p>
     <pre><code>&lt;?php
-// Creating an array with array()
-$fruits = array("Apple", "Banana", "Cherry");
-print_r($fruits);
+// Reinitializing arrays with names and marks
+$name = array("John", "Doe", "Jane");
+$marks = array(78, 89, 92);
 
-// Creating an array with range()
-$numbers = range(1, 5);
-print_r($numbers);
+// Combining the arrays into an associative array
+$c = array_combine($name, $marks);
+print_r($c);
 ?&gt;</code></pre>
     <h5>Output:</h5>
     <div class="output">
         <?php
-        // Creating an array with array()
-        $fruits = array("Apple", "Banana", "Cherry");
-        print_r($fruits);
-
-        echo "<br>";
-
-        // Creating an array with range()
-        $numbers = range(1, 5);
-        print_r($numbers);
+        $name = array("John", "Doe", "Jane");
+        $marks = array(78, 89, 92);
+        $c = array_combine($name, $marks);
+        print_r($c);
         ?>
     </div>
 
-    <!-- Section: Array Manipulation -->
-    <h4>Array Manipulation</h4>
-    <p>Merging, pushing, popping, shifting, slicing, and splicing arrays:</p>
+    <!-- array_chunk -->
+    <h4>array_chunk()</h4>
+    <p><strong>Description:</strong> Splits an array into chunks of the specified size, returning a multidimensional array where each inner array is a chunk.</p>
     <pre><code>&lt;?php
-// Merging arrays
-$array1 = array("red", "green");
-$array2 = array("blue", "yellow");
-$result = array_merge($array1, $array2);
-print_r($result);
+// Reinitializing the array with names
+$name = array("John", "Doe", "Jane");
 
-// Pushing elements
-array_push($fruits, "Orange");
-print_r($fruits);
-
-// Popping elements
-array_pop($fruits);
-print_r($fruits);
-
-// Shifting elements
-array_shift($fruits);
-print_r($fruits);
-
-// Unshifting elements
-array_unshift($fruits, "Kiwi");
-print_r($fruits);
-
-// Slicing arrays
-$sliced_array = array_slice($numbers, 1, 3);
-print_r($sliced_array);
-
-// Splicing arrays
-array_splice($fruits, 1, 2, array("Mango", "Papaya"));
-print_r($fruits);
+// Splitting the array into chunks of size 2
+$chunks = array_chunk($name, 2);
+print_r($chunks);
 ?&gt;</code></pre>
     <h5>Output:</h5>
     <div class="output">
         <?php
-        // Merging arrays
-        $array1 = array("red", "green");
-        $array2 = array("blue", "yellow");
-        $result = array_merge($array1, $array2);
-        print_r($result);
-
-        echo "<br>";
-
-        // Pushing elements
-        array_push($fruits, "Orange");
-        print_r($fruits);
-
-        echo "<br>";
-
-        // Popping elements
-        array_pop($fruits);
-        print_r($fruits);
-
-        echo "<br>";
-
-        // Shifting elements
-        array_shift($fruits);
-        print_r($fruits);
-
-        echo "<br>";
-
-        // Unshifting elements
-        array_unshift($fruits, "Kiwi");
-        print_r($fruits);
-
-        echo "<br>";
-
-        // Slicing arrays
-        $sliced_array = array_slice($numbers, 1, 3);
-        print_r($sliced_array);
-
-        echo "<br>";
-
-        // Splicing arrays
-        array_splice($fruits, 1, 2, array("Mango", "Papaya"));
-        print_r($fruits);
+        $name = array("John", "Doe", "Jane");
+        $chunks = array_chunk($name, 2);
+        print_r($chunks);
         ?>
     </div>
 
-    <!-- Section: Array Search -->
-    <h4>Array Search</h4>
-    <p>Searching for elements in an array:</p>
+    <!-- array_filter -->
+    <h4>array_filter()</h4>
+    <p><strong>Description:</strong> Filters the elements of an array using a callback function. Only elements that pass the callback function’s test are included in the result.</p>
     <pre><code>&lt;?php
-// Checking if a value exists in an array
-if (in_array("Apple", $fruits)) {
-    echo "Apple is in the fruits array.";
-}
+// Reinitializing the array with marks
+$marks = array(78, 89, 92, 50);
 
-// Searching for a key in an array
-$key = array_search("Mango", $fruits);
-echo "Mango is found at index: $key";
-
-// Checking if a key exists
-if (array_key_exists(0, $fruits)) {
-    echo "The key 0 exists in the fruits array.";
-}
-?&gt;</code></pre>
-    <h5>Output:</h5>
-    <div class="output">
-        <?php
-        // Checking if a value exists in an array
-        if (in_array("Apple", $fruits)) {
-            echo "Apple is in the fruits array.<br>";
-        }
-
-        // Searching for a key in an array
-        $key = array_search("Mango", $fruits);
-        echo "Mango is found at index: $key<br>";
-
-        // Checking if a key exists
-        if (array_key_exists(0, $fruits)) {
-            echo "The key 0 exists in the fruits array.";
-        }
-        ?>
-    </div>
-
-    <!-- Section: Array Sorting -->
-    <h4>Array Sorting</h4>
-    <p>Sorting arrays in different ways:</p>
-    <pre><code>&lt;?php
-// Sorting an array in ascending order
-sort($numbers);
-print_r($numbers);
-
-// Sorting an array in descending order
-rsort($numbers);
-print_r($numbers);
-
-// Sorting an associative array by value
-$grades = array("John" => 85, "Jane" => 92, "Doe" => 78);
-asort($grades);
-print_r($grades);
-
-// Sorting an associative array by key
-ksort($grades);
-print_r($grades);
-?&gt;</code></pre>
-    <h5>Output:</h5>
-    <div class="output">
-        <?php
-        // Sorting an array in ascending order
-        sort($numbers);
-        print_r($numbers);
-
-        echo "<br>";
-
-        // Sorting an array in descending order
-        rsort($numbers);
-        print_r($numbers);
-
-        echo "<br>";
-
-        // Sorting an associative array by value
-        $grades = array("John" => 85, "Jane" => 92, "Doe" => 78);
-        asort($grades);
-        print_r($grades);
-
-        echo "<br>";
-
-        // Sorting an associative array by key
-        ksort($grades);
-        print_r($grades);
-        ?>
-    </div>
-
-    <!-- Section: Array Filtering -->
-    <h4>Array Filtering</h4>
-    <p>Filtering arrays using a callback function:</p>
-    <pre><code>&lt;?php
-// Filtering an array to get only even numbers
-$even_numbers = array_filter($numbers, function($num) {
-    return $num % 2 === 0;
+// Filtering the array to include only marks greater than 80
+$filtered = array_filter($marks, function($value) {
+    return $value > 80;
 });
-print_r($even_numbers);
-
-// Applying a callback function to array elements
-$doubled_numbers = array_map(function($num) {
-    return $num * 2;
-}, $numbers);
-print_r($doubled_numbers);
+print_r($filtered);
 ?&gt;</code></pre>
     <h5>Output:</h5>
     <div class="output">
         <?php
-        // Filtering an array to get only even numbers
-        $even_numbers = array_filter($numbers, function($num) {
-            return $num % 2 === 0;
+        $marks = array(78, 89, 92, 50);
+        $filtered = array_filter($marks, function($value) {
+            return $value > 80;
         });
-        print_r($even_numbers);
-
-        echo "<br>";
-
-        // Applying a callback function to array elements
-        $doubled_numbers = array_map(function($num) {
-            return $num * 2;
-        }, $numbers);
-        print_r($doubled_numbers);
+        print_r($filtered);
         ?>
     </div>
 
-    <!-- Section: Array Keys and Values -->
-    <h4>Array Keys and Values</h4>
-    <p>Working with array keys and values:</p>
+    <!-- array_map -->
+    <h4>array_map()</h4>
+    <p><strong>Description:</strong> Applies a callback function to the elements of one or more arrays, returning a new array with the results of the callback function.</p>
     <pre><code>&lt;?php
-// Getting all the keys of an array
-$keys = array_keys($grades);
-print_r($keys);
+// Reinitializing the array with CGPAs
+$cgpa = array(7.8, 8.9, 9.2);
 
-// Getting all the values of an array
-$values = array_values($grades);
-print_r($values);
-
-// Flipping the keys and values of an array
-$flipped_array = array_flip($grades);
-print_r($flipped_array);
+// Applying a function to square each CGPA
+$squared = array_map(function($value) {
+    return $value * $value;
+}, $cgpa);
+print_r($squared);
 ?&gt;</code></pre>
     <h5>Output:</h5>
     <div class="output">
         <?php
-        // Getting all the keys of an array
-        $keys = array_keys($grades);
-        print_r($keys);
-
-        echo "<br>";
-
-        // Getting all the values of an array
-        $values = array_values($grades);
-        print_r($values);
-
-        echo "<br>";
-
-        // Flipping the keys and values of an array
-        $flipped_array = array_flip($grades);
-        print_r($flipped_array);
+        $cgpa = array(7.8, 8.9, 9.2);
+        $squared = array_map(function($value) {
+            return $value * $value;
+        }, $cgpa);
+        print_r($squared);
         ?>
     </div>
 
-    <!-- Section: Array Counting -->
-    <h4>Array Counting</h4>
-    <p>Counting elements in an array:</p>
+    <!-- array_merge -->
+    <h4>array_merge()</h4>
+    <p><strong>Description:</strong> Merges one or more arrays into a single array. If the arrays have the same string keys, the later value will overwrite the previous one.</p>
     <pre><code>&lt;?php
-// Counting all elements in an array
-echo "Number of elements in fruits array: " . count($fruits);
+// Reinitializing arrays with names and surnames
+$name = array("John", "Doe");
+$surname = array("Smith", "Brown");
 
-// Counting all values of an array
-$counted_values = array_count_values($fruits);
-print_r($counted_values);
+// Merging the arrays into one
+$merged = array_merge($name, $surname);
+print_r($merged);
 ?&gt;</code></pre>
     <h5>Output:</h5>
     <div class="output">
         <?php
-        // Counting all elements in an array
-        echo "Number of elements in fruits array: " . count($fruits) . "<br>";
-
-        // Counting all values of an array
-        $counted_values = array_count_values($fruits);
-        print_r($counted_values);
+        $name = array("John", "Doe");
+        $surname = array("Smith", "Brown");
+        $merged = array_merge($name, $surname);
+        print_r($merged);
         ?>
     </div>
 
-    <!-- Section: Array Chunking -->
-    <h4>Array Chunking</h4>
-    <p>Splitting an array into chunks:</p>
+    <!-- array_reduce -->
+    <h4>array_reduce()</h4>
+    <p><strong>Description:</strong> Reduces an array to a single value using a callback function that accumulates the values. The function receives two parameters: the carry (accumulator) and the current item.</p>
     <pre><code>&lt;?php
-// Splitting an array into chunks
-$chunked_array = array_chunk($fruits, 2);
-print_r($chunked_array);
-?&gt;</code></pre>
-    <h5>Output:</h5>
-    <div class="output">
-        <?php
-        // Splitting an array into chunks
-        $chunked_array = array_chunk($fruits, 2);
-        print_r($chunked_array);
-        ?>
-    </div>
+// Reinitializing the array with marks
+$marks = array(78, 89, 92);
 
-    <!-- Section: Array Difference and Intersection -->
-    <h4>Array Difference and Intersection</h4>
-    <p>Computing the difference and intersection of arrays:</p>
-    <pre><code>&lt;?php
-$array3 = array("a" => "red", "b" => "green", "c" => "blue");
-$array4 = array("a" => "red", "b" => "yellow");
-
-// Difference between arrays
-$difference = array_diff($array3, $array4);
-print_r($difference);
-
-// Intersection of arrays
-$intersection = array_intersect($array3, $array4);
-print_r($intersection);
-?&gt;</code></pre>
-    <h5>Output:</h5>
-    <div class="output">
-        <?php
-        $array3 = array("a" => "red", "b" => "green", "c" => "blue");
-        $array4 = array("a" => "red", "b" => "yellow");
-
-        // Difference between arrays
-        $difference = array_diff($array3, $array4);
-        print_r($difference);
-
-        echo "<br>";
-
-        // Intersection of arrays
-        $intersection = array_intersect($array3, $array4);
-        print_r($intersection);
-        ?>
-    </div>
-
-    <!-- Section: Array Reversal -->
-    <h4>Array Reversal</h4>
-    <p>Reversing the order of an array:</p>
-    <pre><code>&lt;?php
-// Reversing the order of an array
-$reversed_array = array_reverse($fruits);
-print_r($reversed_array);
-?&gt;</code></pre>
-    <h5>Output:</h5>
-    <div class="output">
-        <?php
-        // Reversing the order of an array
-        $reversed_array = array_reverse($fruits);
-        print_r($reversed_array);
-        ?>
-    </div>
-
-    <!-- Section: Array Randomization -->
-    <h4>Array Randomization</h4>
-    <p>Shuffling and picking random elements from an array:</p>
-    <pre><code>&lt;?php
-// Shuffling an array
-shuffle($fruits);
-print_r($fruits);
-
-// Picking random elements from an array
-$random_keys = array_rand($fruits, 2);
-print_r($random_keys);
-?&gt;</code></pre>
-    <h5>Output:</h5>
-    <div class="output">
-        <?php
-        // Shuffling an array
-        shuffle($fruits);
-        print_r($fruits);
-
-        echo "<br>";
-
-        // Picking random elements from an array
-        $random_keys = array_rand($fruits, 2);
-        print_r($random_keys);
-        ?>
-    </div>
-
-    <!-- Section: Array Unique -->
-    <h4>Array Unique</h4>
-    <p>Removing duplicate values from an array:</p>
-    <pre><code>&lt;?php
-$duplicate_array = array("a" => "red", "b" => "green", "c" => "red");
-$unique_array = array_unique($duplicate_array);
-print_r($unique_array);
-?&gt;</code></pre>
-    <h5>Output:</h5>
-    <div class="output">
-        <?php
-        $duplicate_array = array("a" => "red", "b" => "green", "c" => "red");
-        $unique_array = array_unique($duplicate_array);
-        print_r($unique_array);
-        ?>
-    </div>
-
-    <!-- Section: Array Reduction -->
-    <h4>Array Reduction</h4>
-    <p>Reducing an array to a single value:</p>
-    <pre><code>&lt;?php
-$sum = array_reduce($numbers, function($carry, $item) {
+// Summing the values using a reduce function
+$sum = array_reduce($marks, function($carry, $item) {
     return $carry + $item;
-});
-echo "Sum of numbers: $sum";
+}, 0);
+echo $sum;
 ?&gt;</code></pre>
     <h5>Output:</h5>
     <div class="output">
         <?php
-        $sum = array_reduce($numbers, function($carry, $item) {
+        $marks = array(78, 89, 92);
+        $sum = array_reduce($marks, function($carry, $item) {
             return $carry + $item;
-        });
-        echo "Sum of numbers: $sum";
+        }, 0);
+        echo $sum;
         ?>
     </div>
 
-    <!-- Section: Array Key-Value Association -->
-    <h4>Array Key-Value Association</h4>
-    <p>Getting the first and last keys of an array:</p>
+    <!-- array_reverse -->
+    <h4>array_reverse()</h4>
+    <p><strong>Description:</strong> Returns an array with its elements in reverse order. The original array remains unchanged.</p>
     <pre><code>&lt;?php
-$first_key = array_key_first($grades);
-echo "First key: $first_key";
+// Reinitializing the array with names
+$name = array("John", "Doe", "Jane");
 
-$last_key = array_key_last($grades);
-echo "Last key: $last_key";
+// Reversing the order of elements
+$reversed = array_reverse($name);
+print_r($reversed);
 ?&gt;</code></pre>
     <h5>Output:</h5>
     <div class="output">
         <?php
-        $first_key = array_key_first($grades);
-        echo "First key: $first_key<br>";
-
-        $last_key = array_key_last($grades);
-        echo "Last key: $last_key";
+        $name = array("John", "Doe", "Jane");
+        $reversed = array_reverse($name);
+        print_r($reversed);
         ?>
     </div>
 
-    <!-- Section: Array Serialization -->
-    <h4>Array Serialization</h4>
-    <p>Serializing and unserializing arrays:</p>
+    <!-- array_slice -->
+    <h4>array_slice()</h4>
+    <p><strong>Description:</strong> Returns a portion of an array specified by the offset and length. The original array remains unchanged.</p>
     <pre><code>&lt;?php
-$serialized = serialize($grades);
-echo "Serialized: $serialized";
+// Reinitializing the array with marks
+$marks = array(78, 89, 92, 70, 85);
 
-$unserialized = unserialize($serialized);
-print_r($unserialized);
+// Slicing the array to get the first three elements
+$sliced = array_slice($marks, 0, 3);
+print_r($sliced);
 ?&gt;</code></pre>
     <h5>Output:</h5>
     <div class="output">
         <?php
-        $serialized = serialize($grades);
-        echo "Serialized: $serialized<br>";
-
-        $unserialized = unserialize($serialized);
-        print_r($unserialized);
+        $marks = array(78, 89, 92, 70, 85);
+        $sliced = array_slice($marks, 0, 3);
+        print_r($sliced);
         ?>
     </div>
 
-    <!-- Section: Miscellaneous -->
-    <h4>Miscellaneous</h4>
-    <p>Miscellaneous array functions:</p>
+    <!-- array_sum -->
+    <h4>array_sum()</h4>
+    <p><strong>Description:</strong> Returns the sum of all the values in an array. Useful for summing up numeric values.</p>
     <pre><code>&lt;?php
-// Applying a user function recursively to every member of an array
-array_walk_recursive($grades, function(&$item, $key) {
-    $item = $item + 5; // Adding 5 marks to each grade
+// Reinitializing the array with marks
+$marks = array(78, 89, 92);
+
+// Calculating the sum of the array values
+$total = array_sum($marks);
+echo $total;
+?&gt;</code></pre>
+    <h5>Output:</h5>
+    <div class="output">
+        <?php
+        $marks = array(78, 89, 92);
+        $total = array_sum($marks);
+        echo $total;
+        ?>
+    </div>
+
+    <!-- array_unique -->
+    <h4>array_unique()</h4>
+    <p><strong>Description:</strong> Removes duplicate values from an array, returning only the unique elements. The array is indexed numerically.</p>
+    <pre><code>&lt;?php
+// Reinitializing the array with marks, including duplicates
+$marks = array(78, 89, 92, 78, 89);
+
+// Removing duplicate values to get unique marks
+$unique = array_unique($marks);
+
+// Printing the array with unique values
+print_r($unique);
+?&gt;</code></pre>
+    <h5>Output:</h5>
+    <div class="output">
+        <?php
+        $marks = array(78, 89, 92, 78, 89);
+        $unique = array_unique($marks);
+        print_r($unique);
+        ?>
+    </div>
+
+    <!-- array_values -->
+    <h4>array_values()</h4>
+    <p><strong>Description:</strong> Returns all the values from an array and indexes the array numerically. This is useful for getting a list of values from an associative array.</p>
+    <pre><code>&lt;?php
+// Reinitializing an associative array with student names
+$students = array("A" => "John", "B" => "Doe", "C" => "Jane");
+
+// Getting only the values from the associative array
+$values = array_values($students);
+
+// Printing the numeric indexed array of values
+print_r($values);
+?&gt;</code></pre>
+    <h5>Output:</h5>
+    <div class="output">
+        <?php
+        $students = array("A" => "John", "B" => "Doe", "C" => "Jane");
+        $values = array_values($students);
+        print_r($values);
+        ?>
+    </div>
+
+    <!-- array_walk -->
+    <h4>array_walk()</h4>
+    <p><strong>Description:</strong> Applies a user-defined function to each element of an array. The function modifies the original array in place.</p>
+    <pre><code>&lt;?php
+// Reinitializing the array with marks
+$marks = array(78, 89, 92);
+
+// Applying a function to each mark to add 5 to each value
+array_walk($marks, function(&$value) {
+    $value += 5;
 });
-print_r($grades);
 
-// Compacting variables into an array
-$name = "John";
-$age = 25;
-$compact_array = compact("name", "age");
-print_r($compact_array);
-
-// Extracting variables from an array
-$person = array("name" => "Jane", "age" => 30);
-extract($person);
-echo "Name: $name, Age: $age";
-
-// Computing the difference of arrays using keys
-$array_diff_key = array_diff_key($grades, $flipped_array);
-print_r($array_diff_key);
-
-// Computing the intersection of arrays using keys
-$array_intersect_key = array_intersect_key($grades, $flipped_array);
-print_r($array_intersect_key);
+// Printing the modified array
+print_r($marks);
 ?&gt;</code></pre>
     <h5>Output:</h5>
     <div class="output">
         <?php
-        // Applying a user function recursively to every member of an array
-        array_walk_recursive($grades, function(&$item, $key) {
-            $item = $item + 5; // Adding 5 marks to each grade
+        $marks = array(78, 89, 92);
+        array_walk($marks, function(&$value) {
+            $value += 5;
         });
-        print_r($grades);
+        print_r($marks);
+        ?>
+    </div>
 
-        echo "<br>";
+    <!-- array_column -->
+    <h4>array_column()</h4>
+    <p><strong>Description:</strong> Returns the values from a single column in the input array, identified by the column key. Useful for extracting a column of data from a multidimensional array.</p>
+    <pre><code>&lt;?php
+// Reinitializing a multidimensional array with employee data
+$employees = array(
+    array("id" => 1, "name" => "John", "department" => "Sales"),
+    array("id" => 2, "name" => "Jane", "department" => "Marketing"),
+    array("id" => 3, "name" => "Doe", "department" => "HR")
+);
 
-        // Compacting variables into an array
-        $name = "John";
-        $age = 25;
-        $compact_array = compact("name", "age");
-        print_r($compact_array);
+// Extracting the 'name' column from the array
+$names = array_column($employees, 'name');
 
-        echo "<br>";
-
-        // Extracting variables from an array
-        $person = array("name" => "Jane", "age" => 30);
-        extract($person);
-        echo "Name: $name, Age: $age<br>";
-
-        // Computing the difference of arrays using keys
-        $array_diff_key = array_diff_key($grades, $flipped_array);
-        print_r($array_diff_key);
-
-        echo "<br>";
-
-        // Computing the intersection of arrays using keys
-        $array_intersect_key = array_intersect_key($grades, $flipped_array);
-        print_r($array_intersect_key);
+// Printing the array of names
+print_r($names);
+?&gt;</code></pre>
+    <h5>Output:</h5>
+    <div class="output">
+        <?php
+        $employees = array(
+            array("id" => 1, "name" => "John", "department" => "Sales"),
+            array("id" => 2, "name" => "Jane", "department" => "Marketing"),
+            array("id" => 3, "name" => "Doe", "department" => "HR")
+        );
+        $names = array_column($employees, 'name');
+        print_r($names);
         ?>
     </div>
 
