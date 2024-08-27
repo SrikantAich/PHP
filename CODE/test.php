@@ -44,9 +44,9 @@ $result2=armstrong($arm);
 echo "Reversed Name: " . rev($name);
 
 // Check if the entered integer is a palindrome
-($result == $int) ? print("\nNumber is a Palindrome") : print("\nNot a Palindrome $int");
+($result == $int) ? print("\nNumber is a Palindrome") : print("\nNot a Palindrome $result");
 
 // Check if the entered integer is an Armstrong number
-($result2 == $arm) ? print("\nNumber is Armstrong") : print("\nNot Armstrong $arm");
+($result2 == $arm) ? print("\nNumber is Armstrong") : print("\nNot Armstrong $result2");
 
 ?>
