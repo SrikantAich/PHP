@@ -30,8 +30,8 @@ PHP is a popular server-side scripting language that is widely used for web deve
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/learning-basic-php.git
-   cd learning-basic-php
+   git clone `https://github.com/SrikantAich/PHP.git`
+   
    ```
 
 2. Ensure your web server is running and pointing to the repository's directory.
