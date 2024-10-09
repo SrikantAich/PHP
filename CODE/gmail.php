@@ -1,12 +1,8 @@
-<?php
-// Import PHPMailer classes into the global namespace
+=<?php
+require 'vendor/autoload.php'; // Use Composer autoloader
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-// Include PHPMailer library files
-require 'PHPMailer-master/src/Exception.php';
-require 'PHPMailer-master/src/PHPMailer.php';
-require 'PHPMailer-master/src/SMTP.php';
 
 // Create an instance of PHPMailer
 $mail = new PHPMailer(true); // Passing `true` enables exceptions
@@ -22,22 +18,25 @@ try {
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption
     $mail->Port       = 587;                     // TCP port to connect to
 
+
     // Recipients
-    $mail->setFrom('srikantaich01@gmail.com', 'Your Name'); // Ensure this matches the authenticated email
-    $mail->addAddress('1062000k@gmail.com', 'Recipient Name'); // Add a recipient
-    $mail->addReplyTo('reply-to-email@domain.com', 'Reply-To Name');
-    $mail->addCC('cc-recipient-email@domain.com', 'CC Recipient Name');
+    $mail->setFrom('srikantaich01@gmail.com', 'Srikant'); // Ensure this matches the authenticated email
+    $mail->addAddress('1062000k@gmail.com', 'Srikant'); // Add a recipient
+    // $mail->addReplyTo('', '');
+    // $mail->addCC('1062000k@gmail.com', 'Srikant');
     // $mail->addBCC('bcc-recipient-email@domain.com'); // Optional BCC
+
 
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Test Email sent via Gmail SMTP Server using PHPMailer';
-    $mail->Body    = '<b>This is a test email sent via Gmail SMTP Server using PHPMailer.</b>';
+    $mail->Body    = '<b>Test Email 🫠</b>';
     $mail->AltBody = 'This is a test email sent via Gmail SMTP Server using PHPMailer.'; // For non-HTML email clients
 
     $mail->send();
     echo 'Email has been sent successfully';
-} catch (Exception $e) {
+}
+ catch (Exception $e) {
     echo "Email could not be sent. PHPMailer Error: {$mail->ErrorInfo}";
 }
 ?>
