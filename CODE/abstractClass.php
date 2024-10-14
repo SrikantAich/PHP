@@ -28,7 +28,4 @@
 
     $elephant->Walkstyle();    
     $kangroo->Walkstyle();    
-
-
-
 ?>
