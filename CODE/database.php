@@ -17,7 +17,7 @@ echo "Connected successfully<br>";
 $sql = "CREATE TABLE IF NOT EXISTS fruits (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL UNIQUE,
-    color VARCHAR(30) NOT NULL,
+    price INT NOT NULL,
     quantity INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
@@ -29,19 +29,41 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error . "<br>";
 }
 
-// SQL query to insert data into the fruits table
-$sql = "INSERT INTO fruits (name, color, quantity) VALUES 
-    ('Apple', 'Red', 10),
-    ('Banana', 'Yellow', 20),
-    ('Grapes', 'Green', 15),
-    ('Orange', 'Orange', 12),
-    ('Strawberry', 'Red', 8)";
+if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+    $name = testInput($_POST['name']);
+    $price = testInput($_POST['price']);
+    $quantity = validateQuantity($_POST['quantity']);
 
-// Execute the query to insert data
-if ($conn->query($sql) === TRUE) {
-    echo "New records created successfully<br>";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    // SQL query to insert data into the fruits table
+    $sql = "INSERT INTO fruits (name,price, quantity) VALUES ('$name', '$price', $quantity)";
+
+    // Execute the query to insert data
+    if ($conn->query($sql) === TRUE) {
+       
+        echo "New record created successfully<br>";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+function testInput($data) {
+    $data=strtoupper($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    $data = trim($data);
+    return $data;
+}
+
+function validateQuantity($data)
+{
+    $data=testInput($data);
+    if (is_numeric($data)) 
+    {
+        if ($data >= 0) {
+            return $data;
+        }
+    }
+    return -1;
 }
 
 // Close connection
